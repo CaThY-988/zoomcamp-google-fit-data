@@ -1,0 +1,7 @@
+services:
+  ingest:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./data:/code/data

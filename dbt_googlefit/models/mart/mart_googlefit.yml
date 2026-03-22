@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: user_daily_health_summary
+    description: "Daily user-level health summary combining activity, sleep, cardiovascular signals, and lifestyle metrics"
+
+    columns:
+
+      - name: user_id
+        description: "Unique user identifier"
+        tests:
+          - not_null
+
+      - name: date
+        description: "Date of observation"
+        tests:
+          - not_null
+
+      - name: activity_level
+        description: "Categorised activity level based on daily step count"
+
+      - name: sleep_quality
+        description: "Categorised sleep quality based on sleep duration"
+
+      - name: pulse_pressure
+        description: "Difference between systolic and diastolic blood pressure"
+
+      - name: wellness_score
+        description: "Simple composite score combining activity, sleep, and heart rate"

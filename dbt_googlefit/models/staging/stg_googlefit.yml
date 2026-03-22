@@ -1,0 +1,133 @@
+version: 2
+
+models:
+  - name: stg_google_fit
+    description: "Cleaned staging model for Google Fit dataset with typed fields and normalized values at daily grain per user"
+
+    columns:
+
+      # identifiers
+      - name: user_id
+        description: "Unique identifier for each user"
+        tests:
+          - not_null
+
+      - name: date
+        description: "Date of the recorded metrics"
+        tests:
+          - not_null
+
+      - name: day_index
+        description: "Sequential day index per user"
+
+      # demographics
+      - name: age
+        description: "Age of the user in years"
+
+      - name: sex
+        description: "Encoded biological sex of the user (e.g. 0/1)"
+
+      - name: bmi
+        description: "Body Mass Index of the user"
+
+      - name: smoking_status
+        description: "Indicator of smoking status (e.g. 0 = non-smoker, 1 = smoker)"
+
+      - name: family_history_cvd
+        description: "Indicator for family history of cardiovascular disease"
+
+      - name: fitness_level
+        description: "Categorical indicator of fitness level"
+
+      # physical measurements
+      - name: height_m
+        description: "Height of the user in meters"
+
+      - name: weight_kg
+        description: "Weight of the user in kilograms"
+
+      # activity
+      - name: activity_type
+        description: "Type of activity performed (normalized to lowercase)"
+
+      - name: steps
+        description: "Total number of steps taken during the day"
+
+      - name: heart_points
+        description: "Google Fit heart points earned during activity"
+
+      - name: move_minutes
+        description: "Active minutes recorded during the day"
+
+      - name: calories_burned
+        description: "Estimated calories burned during activity"
+
+      - name: distance_km
+        description: "Distance traveled in kilometers"
+
+      - name: step_cadence
+        description: "Average step cadence (steps per minute)"
+
+      - name: cycling_power_watts
+        description: "Estimated cycling power output in watts"
+
+      # cardiovascular metrics
+      - name: avg_heart_rate
+        description: "Average heart rate during activity (beats per minute)"
+
+      - name: resting_hr
+        description: "Resting heart rate (beats per minute)"
+
+      - name: hrv
+        description: "Heart rate variability measure"
+
+      - name: bp_systolic
+        description: "Systolic blood pressure (mmHg)"
+
+      - name: bp_diastolic
+        description: "Diastolic blood pressure (mmHg)"
+
+      # glucose metrics
+      - name: fasting_glucose
+        description: "Fasting blood glucose level"
+
+      - name: postprandial_glucose
+        description: "Blood glucose level after meals"
+
+      # oxygen and temperature
+      - name: spo2
+        description: "Blood oxygen saturation percentage"
+
+      - name: body_temp_c
+        description: "Body temperature in degrees Celsius"
+
+      # sleep
+      - name: sleep_hours
+        description: "Total sleep duration in hours"
+
+      - name: sleep_efficiency
+        description: "Sleep efficiency ratio (0–1 scale)"
+
+      # lifestyle
+      - name: fatigue_score
+        description: "Self-reported or calculated fatigue score"
+
+      - name: calories_consumed
+        description: "Estimated daily caloric intake"
+
+      - name: water_intake_l
+        description: "Daily water intake in liters"
+
+      # measurement flags
+      - name: sleep_data_available
+        description: "Boolean flag indicating if sleep data is available"
+
+      - name: bp_measured
+        description: "Boolean flag indicating if blood pressure was measured"
+
+      - name: glucose_measured
+        description: "Boolean flag indicating if glucose was measured"
+
+      # outcome
+      - name: cardiometabolic_risk_state
+        description: "Categorical indicator of cardiometabolic risk level"

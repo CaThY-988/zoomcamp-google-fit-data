@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: google_fit
+    description: "Raw Google Fit dataset ingested from S3 into Databricks"
+    database: workspace
+    schema: default
+    tables:
+      - name: raw_google_fit
+        description: "Raw activity, health, and biometrics data at daily grain per user"
